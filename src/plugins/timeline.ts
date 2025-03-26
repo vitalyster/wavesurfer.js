@@ -235,10 +235,10 @@ class TimelinePlugin extends BasePlugin<TimelinePluginEvents, TimelinePluginOpti
     for (let i = 0, notches = 0; i < duration; i += timeInterval, notches++) {
       const notch = notchEl.cloneNode() as HTMLElement
       const isPrimary =
-        (Math.round(i * 100) / 100) % primaryLabelInterval === 0 ||
+        (i.toFixed(2) % primaryLabelInterval.toFixed(2) === 0 ||
         (primaryLabelSpacing && notches % primaryLabelSpacing === 0)
       const isSecondary =
-        (Math.round(i * 100) / 100) % secondaryLabelInterval === 0 ||
+        (i.toFixed(2) % secondaryLabelInterval.toFixed(2) === 0 ||
         (secondaryLabelSpacing && notches % secondaryLabelSpacing === 0)
 
       if (isPrimary || isSecondary) {
